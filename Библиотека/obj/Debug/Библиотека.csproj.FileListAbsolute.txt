@@ -1,0 +1,11 @@
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\bin\Debug\Библиотека.exe.config
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\bin\Debug\Библиотека.exe
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\bin\Debug\Библиотека.pdb
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.csproj.AssemblyReference.cache
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.csproj.SuggestedBindingRedirects.cache
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.Start_page.resources
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.Properties.Resources.resources
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.csproj.GenerateResource.cache
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.csproj.CoreCompileInputs.cache
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.exe
+C:\Users\pluj9\Desktop\Ангелина\Библиотека\Библиотека\obj\Debug\Библиотека.pdb

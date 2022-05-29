@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BookList>
+    <Book>
+      <Name>Война и мир</Name>
+      <Author>Л. Н. Толстой</Author>
+      <Year_of_release>1863</Year_of_release>
+    </Book>
+    <Book>
+      <Name>Преступление и наказание</Name>
+      <Author>Достоевский</Author>
+      <Year_of_release>1866</Year_of_release>
+    </Book>
+  </BookList>
+</Books>
