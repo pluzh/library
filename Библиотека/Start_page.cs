@@ -113,7 +113,7 @@ namespace Библиотека
                 button = 2;
         }
 
-        private void rbYyear_CheckedChanged(object sender, EventArgs e)
+        private void rbYear_CheckedChanged(object sender, EventArgs e)
         {
             if (rbYear.Checked)
                 button = 3;

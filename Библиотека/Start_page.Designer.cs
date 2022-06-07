@@ -209,7 +209,7 @@
             this.rbYear.TabIndex = 9;
             this.rbYear.Text = "Поиск по году выпуска";
             this.rbYear.UseVisualStyleBackColor = true;
-            this.rbYear.CheckedChanged += new System.EventHandler(this.rbYyear_CheckedChanged);
+            this.rbYear.CheckedChanged += new System.EventHandler(this.rbYear_CheckedChanged);
             // 
             // dgvSearch
             // 
