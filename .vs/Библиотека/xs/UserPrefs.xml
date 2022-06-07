@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{6EDCCB4D-D94E-4E6C-AB28-FC40EDBA9822}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Библиотека/Converting.cs">
+    <Files>
+      <File FileName="Библиотека/Converting.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Библиотека" expanded="True">
+            <Node name="Библиотека" expanded="True">
+              <Node name="Converting.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Библиотека PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
