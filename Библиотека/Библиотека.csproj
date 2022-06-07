@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="Holder.cs" />
+    <Compile Include="Converting.cs" />
     <Compile Include="Start_page.cs">
       <SubType>Form</SubType>
     </Compile>

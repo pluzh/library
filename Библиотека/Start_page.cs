@@ -1,9 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Xml.Serialization;
-using System.IO;
-using System.Xml;
 
 namespace Библиотека
 {
@@ -14,127 +11,124 @@ namespace Библиотека
             InitializeComponent();
         }
 
-        private void SerializeXML(Books books)
+        private void Start_page_Load(object sender, EventArgs e)
         {
-            XmlSerializer xml = new XmlSerializer(typeof(Books));
-
-            using (FileStream fs = new FileStream("Books.xml", FileMode.Create))
+            IConverting converting = new XmlConverting();
+            try
             {
-                xml.Serialize(fs, books);
+                Holder.library = converting.Deserialize();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                "Некорректный файл Books.xml",
+                "Предупреждение",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+                Environment.Exit(2);
+            }
+            foreach (Book book in Holder.library.BookList)
+                Holder.data.Add(book);
+            dgvStart.DataSource = Holder.data;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            IConverting converting = new XmlConverting();
+            if (tbAuthor.Text != "" && tbYear.Text != "" && tbName.Text != "")
+            {
+                Book book1 = new Book(tbName.Text, tbAuthor.Text, tbYear.Text);
+                Holder.library.BookList.Add(book1);
+                Holder.data.Add(book1);
+                dgvStart.DataSource = Holder.data;
+                tbAuthor.Text = "";
+                tbYear.Text = "";
+                tbName.Text = "";
+                converting.Serialize(Holder.library);
             }
         }
-        private static Books DeserializeXML()
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(Books));
 
-            using (FileStream fs = new FileStream("Books.xml", FileMode.OpenOrCreate))
+        int button = 1;
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            dgvSearch.ClearSelection();
+            string s = tbSearch.Text;
+            int i = 0;
+            BindingList<Book> data1 = new BindingList<Book>();
+            if (button == 1)
             {
-                return (Books)xml.Deserialize(fs);
-            }
-        }
-
-        BindingList<Book> data = new BindingList<Book>();
-        Books books = DeserializeXML();
-        int button = 0;
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            foreach (Book book in books.BookList)
-                data.Add(book);
-            dataGridView1.DataSource = data;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dataGridView2.ClearSelection();
-            if (button != 0)
-            {
-                string s = textBox1.Text;
-                int i = 0;
-                BindingList<Book> data1 = new BindingList<Book>();
-                if (button == 1)
+                foreach (Book book in Holder.library.BookList)
                 {
-                    foreach(Book book in books.BookList)
+                    if (book.Name.Contains(s))
                     {
-                        if (book.Name.Contains(s))
-                        {
-                            data1.Add(book);
-                            i = 1;
-                        }
+                        data1.Add(book);
+                        i = 1;
                     }
-                    if (i == 1)
-                        dataGridView2.DataSource = data1;
                 }
-                if (button == 2)
-                {
-                    foreach (Book book in books.BookList)
-                    {
-                        if (book.Author.Contains(s))
-                        {
-                            data1.Add(book);
-                            i = 1;
-                        }
-                    }
-                    if (i == 1)
-                        dataGridView2.DataSource = data1;
-                }
-                if (button == 3)
-                {
-                    foreach (Book book in books.BookList)
-                    {
-                        if (book.Year_of_release.Contains(s))
-                        {
-                            data1.Add(book);
-                            i = 1;
-                        }
-                    }
-                    if (i == 1)
-                        dataGridView2.DataSource = data1;
-                }
+                if (i == 1)
+                    dgvSearch.DataSource = data1;
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
+            if (button == 2)
             {
-                Book book1 = new Book(textBox4.Text, textBox2.Text, textBox3.Text);
-                books.BookList.Add(book1);
-                data.Add(book1);
-                dataGridView1.DataSource = data;
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
-                SerializeXML(books);
+                foreach (Book book in Holder.library.BookList)
+                {
+                    if (book.Author.Contains(s))
+                    {
+                        data1.Add(book);
+                        i = 1;
+                    }
+                }
+                if (i == 1)
+                    dgvSearch.DataSource = data1;
             }
+            if (button == 3)
+            {
+                foreach (Book book in Holder.library.BookList)
+                {
+                    if (book.Year_of_release.Contains(s))
+                    {
+                        data1.Add(book);
+                        i = 1;
+                    }
+                }
+                if (i == 1)
+                    dgvSearch.DataSource = data1;
+            }
+            if (i == 0)
+                dgvSearch.Rows.Clear();
+
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void rbName_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            if (rbName.Checked)
                 button = 1;
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void rbAuthor_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton2.Checked)
+            if (rbAuthor.Checked)
                 button = 2;
         }
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        private void rbYyear_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton3.Checked)
+            if (rbYear.Checked)
                 button = 3;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            IConverting converting = new XmlConverting();
+            foreach (DataGridViewRow row in dgvStart.SelectedRows)
             {
-                books.BookList.RemoveAt(row.Index);
-                dataGridView1.Rows.Remove(row);
+                Holder.library.BookList.RemoveAt(row.Index);
+                dgvStart.Rows.Remove(row);
             }
-            SerializeXML(books);
+            converting.Serialize(Holder.library);
         }
+
     }
 }

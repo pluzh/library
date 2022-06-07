@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <BookList>
     <Book>
       <Name>Война и мир</Name>
@@ -12,4 +12,4 @@
       <Year_of_release>1866</Year_of_release>
     </Book>
   </BookList>
-</Books>
+</Library>

@@ -5,9 +5,9 @@ namespace Библиотека
 {
 
     [Serializable]
-    public class Books
+    public class Library
     {
-        public Books() { }
+        public Library() { }
         public List<Book> BookList { get; set; } = new List<Book>();
     }
 
